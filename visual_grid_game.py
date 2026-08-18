@@ -71,12 +71,19 @@ class VisualGridHuntGame:
         food_here = tuple(self.agent_pos) in self.food_positions
 
         return {
-            "wall_ahead": wall_ahead,
-            "food_here": food_here,
-            "collision": self.collision,
-            "score": self.score,
-            "remaining_food": len(self.food_positions),
-        }
+    "wall_ahead": wall_ahead,
+    "food_here": food_here,
+    "collision": self.collision,
+    "score": self.score,
+    "remaining_food": len(self.food_positions),
+
+    # Global state for search/model-based agents
+    "grid_size": (self.width, self.height),
+    "walls": list(self.walls),
+    "all_food": list(self.food_positions),
+
+    "agent_pos": tuple(self.agent_pos),
+}
 
     
 
